@@ -90,16 +90,16 @@ const ChatBot = () => {
   };
 
   return (
-    <div className="flex flex-col h-full min-h-[75vh] bg-indigo-50 shadow-xl rounded-xl overflow-hidden border border-indigo-200">
+    <div className="flex flex-col h-full min-h-[75vh] bg-teal-50 shadow-xl rounded-xl overflow-hidden border border-teal-200">
       {/* Header with Topic Name */}
-      <div className="bg-gradient-to-r from-indigo-700 to-indigo-500 text-white p-4 shadow-lg">
+      <div className="bg-gradient-to-r from-teal-700 to-blue-500 text-white p-4 shadow-lg">
         <h1 className="text-xl font-bold flex items-center gap-2 md:text-2xl">
           <Bot className="h-5 w-5 md:h-6 md:w-6" />
           <span className="font-mono tracking-tight">Topic Assistant</span>
           {topicDetails && (
             <>
-              <span className="mx-1 text-indigo-200">|</span>
-              <span className="font-semibold text-indigo-100 truncate max-w-xs">
+              <span className="mx-1 text-teal-200">|</span>
+              <span className="font-semibold text-teal-100 truncate max-w-xs">
                 {topicDetails.topic_name}
               </span>
             </>
@@ -108,13 +108,13 @@ const ChatBot = () => {
       </div>
 
       {/* Chat Messages Section */}
-      <div className="flex-grow overflow-y-auto p-3 md:p-5 space-y-4 bg-gradient-to-b from-indigo-50 to-white">
+      <div className="flex-grow overflow-y-auto p-3 md:p-5 space-y-4 bg-gradient-to-b from-teal-50 to-white">
         {conversation.length === 0 && (
-          <div className="flex flex-col items-center justify-center h-full text-center text-indigo-800 py-8 space-y-4">
-            <Bot className="h-12 w-12 text-indigo-400" />
+          <div className="flex flex-col items-center justify-center h-full text-center text-teal-800 py-8 space-y-4">
+            <Bot className="h-12 w-12 text-teal-400" />
             <div className="max-w-md">
-              <p className="text-lg font-medium text-indigo-700">Welcome to the Topic Assistant!</p>
-              <p className="text-indigo-600 mt-2">Ask any questions about this topic and I'll help you understand it better.</p>
+              <p className="text-lg font-medium text-teal-700">Welcome to the Topic Assistant!</p>
+              <p className="text-teal-600 mt-2">Ask any questions about this topic and I'll help you understand it better.</p>
             </div>
           </div>
         )}
@@ -126,7 +126,7 @@ const ChatBot = () => {
           >
             {msg.role !== 'user' && (
               <div className="flex-shrink-0 mb-1">
-                <div className="bg-indigo-600 text-white p-1.5 rounded-full">
+                <div className="bg-teal-600 text-white p-1.5 rounded-full">
                   <Bot size={16} />
                 </div>
               </div>
@@ -136,18 +136,18 @@ const ChatBot = () => {
               className={`
                 max-w-[85%] md:max-w-[75%] p-3 rounded-2xl shadow-sm 
                 ${msg.role === 'user' 
-                  ? 'bg-indigo-600 text-white rounded-tr-none' 
-                  : 'bg-white text-gray-800 rounded-tl-none border border-indigo-100'}
+                  ? 'bg-teal-600 text-white rounded-tr-none' 
+                  : 'bg-white text-gray-800 rounded-tl-none border border-teal-100'}
               `}
             >
-              <p className={`text-sm md:text-base ${msg.role === 'user' ? 'text-indigo-50' : 'text-gray-700'}`}>
+              <p className={`text-sm md:text-base ${msg.role === 'user' ? 'text-teal-50' : 'text-gray-700'}`}>
                 {msg.content}
               </p>
             </div>
             
             {msg.role === 'user' && (
               <div className="flex-shrink-0 mb-1">
-                <div className="bg-indigo-500 text-white p-1.5 rounded-full">
+                <div className="bg-teal-500 text-white p-1.5 rounded-full">
                   <User size={16} />
                 </div>
               </div>
@@ -158,15 +158,15 @@ const ChatBot = () => {
         {isLoading && (
           <div className="flex items-start space-x-2 justify-start">
             <div className="flex-shrink-0">
-              <div className="bg-indigo-600 text-white p-1.5 rounded-full">
+              <div className="bg-teal-600 text-white p-1.5 rounded-full">
                 <Bot size={16} />
               </div>
             </div>
-            <div className="bg-white text-indigo-800 p-3 rounded-2xl rounded-tl-none border border-indigo-100 shadow-sm">
+            <div className="bg-white text-teal-800 p-3 rounded-2xl rounded-tl-none border border-teal-100 shadow-sm">
               <div className="flex items-center space-x-2">
-                <div className="w-2 h-2 bg-indigo-600 rounded-full animate-bounce" style={{ animationDelay: '0ms' }}></div>
-                <div className="w-2 h-2 bg-indigo-500 rounded-full animate-bounce" style={{ animationDelay: '150ms' }}></div>
-                <div className="w-2 h-2 bg-indigo-400 rounded-full animate-bounce" style={{ animationDelay: '300ms' }}></div>
+                <div className="w-2 h-2 bg-teal-600 rounded-full animate-bounce" style={{ animationDelay: '0ms' }}></div>
+                <div className="w-2 h-2 bg-teal-500 rounded-full animate-bounce" style={{ animationDelay: '150ms' }}></div>
+                <div className="w-2 h-2 bg-teal-400 rounded-full animate-bounce" style={{ animationDelay: '300ms' }}></div>
               </div>
             </div>
           </div>
@@ -184,7 +184,7 @@ const ChatBot = () => {
       )}
 
       {/* Message Input Section */}
-      <div className="p-3 bg-white border-t border-indigo-100 shadow-inner">
+      <div className="p-3 bg-white border-t border-teal-100 shadow-inner">
         <form onSubmit={handleSubmit} className="flex items-end gap-2">
           <div className="relative flex-grow">
             <textarea
@@ -193,7 +193,7 @@ const ChatBot = () => {
               onChange={handleTextareaChange}
               onKeyDown={handleKeyDown} // New: submit on Enter key press
               placeholder="Ask a question about this topic..."
-              className="w-full p-3 pr-12 border-2 border-indigo-200 bg-indigo-50 text-gray-800 rounded-xl focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition-all duration-200 resize-none placeholder-indigo-400 min-h-[44px] max-h-[120px]"
+              className="w-full p-3 pr-12 border-2 border-teal-200 bg-teal-50 text-gray-800 rounded-xl focus:outline-none focus:ring-2 focus:ring-teal-500 focus:border-teal-500 transition-all duration-200 resize-none placeholder-teal-400 min-h-[44px] max-h-[120px]"
               rows={1}
               disabled={isLoading}
             />
@@ -202,8 +202,8 @@ const ChatBot = () => {
             type="submit"
             disabled={isLoading || !userInput.trim()}
             className="
-              bg-gradient-to-r from-indigo-700 to-indigo-500 text-white p-3 rounded-xl
-              hover:from-indigo-800 hover:to-indigo-600 disabled:opacity-50 disabled:cursor-not-allowed 
+              bg-gradient-to-r from-teal-700 to-blue-500 text-white p-3 rounded-xl
+              hover:from-teal-800 hover:to-blue-600 disabled:opacity-50 disabled:cursor-not-allowed 
               transition-all duration-200 shadow-md hover:shadow-lg flex-shrink-0
               flex items-center justify-center h-11 w-11
             "

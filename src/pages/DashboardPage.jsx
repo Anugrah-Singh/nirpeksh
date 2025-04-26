@@ -39,22 +39,22 @@ function DashboardPage() {
   });
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-100 py-6 px-4 md:py-10 md:px-6">
+    <div className="min-h-screen bg-gradient-to-br from-teal-50 via-blue-50 to-teal-100 py-6 px-4 md:py-10 md:px-6">
       <div className="max-w-7xl mx-auto">
         {/* Header Section */}
         <div className="text-center mb-8 md:mb-12">
           <div className="inline-block mb-3">
-            <span className="bg-indigo-100 text-indigo-800 text-xs font-medium px-2.5 py-0.5 rounded-full">Explore</span>
+            <span className="bg-teal-100 text-teal-800 text-xs font-medium px-2.5 py-0.5 rounded-full">Explore</span>
           </div>
           <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4">
-            <span className="bg-clip-text text-transparent bg-gradient-to-r from-indigo-600 to-purple-600">
-              Topics Dashboard
+            <span className="bg-clip-text text-transparent bg-gradient-to-r from-teal-600 to-blue-600">
+              Topics
             </span>
           </h1>
           <p className="text-gray-600 max-w-lg mx-auto text-sm md:text-base">
             Discover diverse perspectives on current topics with balanced viewpoints from multiple sources and experts
           </p>
-          <div className="mt-4 w-24 h-1 bg-gradient-to-r from-indigo-500 to-purple-500 rounded-full mx-auto opacity-75"></div>
+          <div className="mt-4 w-24 h-1 bg-gradient-to-r from-teal-500 to-blue-500 rounded-full mx-auto opacity-75"></div>
         </div>
 
         {/* Search and Filter Bar */}

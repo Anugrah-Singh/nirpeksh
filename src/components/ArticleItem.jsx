@@ -24,14 +24,15 @@ function ArticleItem({ articleId, articleName, articleUrl, isCompleted, onComple
     }
   };
 
+  // Updated color scheme to match the logo
   const getBiasLabel = () => {
     if (!bias) return null;
-    
+
     const lowerBias = bias.toLowerCase();
     if (lowerBias.includes('left')) {
-      return { text: bias, color: 'bg-blue-100 text-blue-800 border-blue-200' };
+      return { text: bias, color: 'bg-teal-100 text-teal-800 border-teal-200' };
     } else if (lowerBias.includes('right')) {
-      return { text: bias, color: 'bg-red-100 text-red-800 border-red-200' };
+      return { text: bias, color: 'bg-blue-100 text-blue-800 border-blue-200' };
     } else if (lowerBias.includes('center')) {
       return { text: bias, color: 'bg-purple-100 text-purple-800 border-purple-200' };
     }
@@ -103,7 +104,7 @@ function ArticleItem({ articleId, articleName, articleUrl, isCompleted, onComple
               <button
                 onClick={handleCompleteClick}
                 disabled={loading}
-                className={`w-full sm:w-auto flex items-center justify-center gap-1.5 px-4 py-2 text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 rounded-lg transition-colors ${loading ? 'opacity-50 cursor-not-allowed' : ''}`}
+                className={`w-full sm:w-auto flex items-center justify-center gap-1.5 px-4 py-2 text-sm font-medium bg-gradient-to-r from-teal-700 to-blue-500 text-white shadow-lg rounded-lg transition-colors hover:from-teal-600 hover:to-blue-400 ${loading ? 'opacity-50 cursor-not-allowed' : ''}`}
               >
                 {loading ? (
                   <>
@@ -123,12 +124,15 @@ function ArticleItem({ articleId, articleName, articleUrl, isCompleted, onComple
                 )}
               </button>
             ) : (
-              <span className="w-full sm:w-auto flex items-center justify-center gap-1.5 px-4 py-2 text-sm font-medium text-green-800 bg-green-100 rounded-lg">
+              <button
+                disabled
+                className="w-full sm:w-auto flex items-center justify-center gap-1.5 px-4 py-2 text-sm font-medium bg-gradient-to-r from-teal-700 to-blue-500 text-white shadow-lg rounded-lg cursor-not-allowed hover:from-teal-600 hover:to-blue-400"
+              >
                 <svg className="h-4 w-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                 </svg>
                 <span>Read</span>
-              </span>
+              </button>
             )}
           </div>
         </div>
