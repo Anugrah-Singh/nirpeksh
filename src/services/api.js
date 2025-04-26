@@ -2,8 +2,8 @@ import axios from 'axios';
 
 // Configure Axios instance
 const apiClient = axios.create({
-  baseURL: '/api', // Proxy will handle '/api' -> 'http://localhost:5000/api' if configured in vite.config.js, otherwise use full URL e.g. 'http://localhost:5000/api'
-  timeout: 10000, // Request timeout: 10 seconds
+  baseURL: import.meta.env.VITE_API_BASE_URL || '/api', // Proxy will handle '/api' -> 'http://localhost:5000/api' if configured in vite.config.js, otherwise use full URL e.g. 'http://localhost:5000/api'
+  timeout: 100000, // Request timeout: 10 seconds
   headers: {
     'Content-Type': 'application/json',
   },
@@ -48,8 +48,8 @@ export const logoutUser = () => {
 // Replace with your actual backend endpoint
 export const getTopics = async () => {
   try {
-    const response = await apiClient.get('/topics');
-    // Assuming backend returns an array of topics: [{ topic_id, topic_name, ... }]
+    const response = await apiClient.get('/get_topics');
+    // Assuming backend returns an array of topics: [{ topic_id, topic_name, ... },]
     return response.data;
   } catch (error) {
     console.error('Get Topics API error:', error.response?.data || error.message);
@@ -60,7 +60,8 @@ export const getTopics = async () => {
 // Replace with your actual backend endpoint
 export const getTopicDetails = async (topicId) => {
   try {
-    const response = await apiClient.get(`/topics/${topicId}`);
+    const response = await apiClient.get(`/get_topic/${topicId}`);
+    
     // Assuming backend returns { topic_id, brief, perspective, related_articles: [{ article_id, article_name, URL, ... }] }
     return response.data;
   } catch (error) {
@@ -73,7 +74,7 @@ export const getTopicDetails = async (topicId) => {
 export const markArticleAsComplete = async (articleId) => {
   try {
     // Assuming the backend expects an empty body or specific format for completion
-    const response = await apiClient.post(`/articles/${articleId}/complete`);
+    const response = await apiClient.post(`/article/${articleId}/complete`);
     return response.data; // Or just status code check
   } catch (error) {
     console.error(`Mark Article Complete API error (ID: ${articleId}):`, error.response?.data || error.message);
