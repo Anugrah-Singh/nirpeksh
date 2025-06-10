@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Routes, Route, Navigate, Outlet } from 'react-router-dom';
 import DashboardPage from './pages/DashboardPage';
 import TopicDetailsPage from './pages/TopicDetailsPage';
+import AboutPage from './pages/AboutPage';
 
 // Updated color scheme to match the logo
 const AppLayout = () => {
@@ -20,7 +21,7 @@ const AppLayout = () => {
           <nav className="hidden md:flex items-center space-x-6">
             <a href="/dashboard" className="text-gray-600 hover:text-teal-700 font-medium transition-colors">Dashboard</a>
             <a href="#" className="text-gray-600 hover:text-teal-700 font-medium transition-colors">Topics</a>
-            <a href="#" className="text-gray-600 hover:text-teal-700 font-medium transition-colors">About</a>
+            <a href="/about" className="text-gray-600 hover:text-teal-700 font-medium transition-colors">About</a>
           </nav>
           <button 
             className="md:hidden text-gray-700 focus:outline-none"
@@ -34,8 +35,8 @@ const AppLayout = () => {
         {isMenuOpen && (
           <nav className="md:hidden px-4 pt-2 pb-4 space-y-1 bg-white shadow">
             <a href="/dashboard" className="block text-gray-600 hover:text-teal-700 font-medium transition-colors">Dashboard</a>
-            <a href="#" className="block text-gray-600 hover:text-teal-700 font-medium transition-colors">Topics</a>
-            <a href="#" className="block text-gray-600 hover:text-teal-700 font-medium transition-colors">About</a>
+            <a href="" className="block text-gray-600 hover:text-teal-700 font-medium transition-colors">Topics</a>
+            <a href="/about" className="block text-gray-600 hover:text-teal-700 font-medium transition-colors">About</a>
           </nav>
         )}
       </header>
@@ -81,6 +82,7 @@ function App() {
       <Route element={<AppLayout />}>
         <Route path="/dashboard" element={<DashboardPage />} />
         <Route path="/get_topic/:topicId" element={<TopicDetailsPage />} />
+        <Route path="/about" element={<AboutPage />} />
         <Route path="/" element={<Navigate to="/dashboard" replace />} />
         <Route path="*" element={<Navigate to="/dashboard" replace />} />
       </Route>

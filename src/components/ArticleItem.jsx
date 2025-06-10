@@ -6,6 +6,14 @@ function ArticleItem({ articleId, articleName, articleUrl, isCompleted, onComple
   const [error, setError] = useState('');
   const [completedLocally, setCompletedLocally] = useState(isCompleted);
   const [showDetails, setShowDetails] = useState(false);
+  
+
+  console.log('ArticleItem rendered with articleId:', articleId);
+  console.log('ArticleItem rendered with articleName:', articleName);
+  console.log('ArticleItem rendered with articleUrl:', articleUrl);
+  console.log('ArticleItem rendered with isCompleted:', isCompleted);
+  console.log('ArticleItem rendered with bias:', bias);
+  console.log('ArticleItem rendered with summary:', summary);
 
   const handleCompleteClick = async () => {
     if (completedLocally) return;
@@ -40,6 +48,7 @@ function ArticleItem({ articleId, articleName, articleUrl, isCompleted, onComple
   };
 
   const biasLabel = getBiasLabel();
+
 
   return (
     <li className="mb-6 overflow-hidden transition-all duration-300 rounded-xl border border-indigo-200 shadow-sm hover:shadow-md">

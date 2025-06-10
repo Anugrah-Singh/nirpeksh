@@ -13,6 +13,10 @@ function TopicDetailsPage() {
   const [completedArticles, setCompletedArticles] = useState(new Set());
 
   useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [topicId]);
+
+  useEffect(() => {
     const fetchDetails = async () => {
       setLoading(true);
       setError('');
@@ -155,7 +159,7 @@ function TopicDetailsPage() {
           <div className="p-6">
             <ReactMarkdown
               components={{
-                p: ({ node, ...props }) => <p {...props} className="text-gray-700 whitespace-pre-wrap leading-relaxed" />,
+                p: ({ ...props }) => <p {...props} className="text-gray-700 whitespace-pre-wrap leading-relaxed" />,
               }}
             >
               {topicDetails.brief || 'No brief available for this topic.'}
